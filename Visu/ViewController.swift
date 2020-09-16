@@ -9,23 +9,9 @@
 import SpriteKit
 import UIKit
 
-class VSScene: SKScene {
-    
-}
+class ViewController: UIViewController {
 
-class VSSceneManager: NSObject, SKSceneDelegate {
-    
-}
-
-class ViewController: UIViewController, SKSceneDelegate {
-
-    let scene: VSScene = {
-        let scene = VSScene()
-        
-        scene.backgroundColor = .blue
-        
-        return scene
-    }()
+    var scene: VSScene!
     
     let skView: SKView = {
         let view = SKView()
@@ -39,7 +25,6 @@ class ViewController: UIViewController, SKSceneDelegate {
         super.viewDidLoad()
         
         self.setupSKView()
-        self.setupVSScene()
     }
     
     func setupSKView() {
@@ -51,9 +36,23 @@ class ViewController: UIViewController, SKSceneDelegate {
         skView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         skView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        
+        self.setupVSScene()
+    }
+    
     func setupVSScene() {
+        self.scene = VSScene(size: self.view.frame.size)
+        scene.backgroundColor = .systemPink
+        self.scene.scaleMode = .aspectFill
+        scene.size = self.skView.frame.size
         self.skView.presentScene(self.scene)
+
+        skView.ignoresSiblingOrder = true
+        
+        skView.showsFPS = true
+        skView.showsNodeCount = true
     }
 
 }
