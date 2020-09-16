@@ -42,22 +42,65 @@ class VSScene: SKScene {
         ]
         
         
-        for _ in 0...500 {
-            let newNode = SKShapeNode(circleOfRadius: .random(in: 3...10))
+        for _ in 0...70 {
+            let color = colors.randomElement()!
+            let radius = CGFloat.random(in: 3...8)
+//            let newNode = SKShapeNode(circleOfRadius: radius)
+            let newNode = SKNode()
+            let particle = SKEmitterNode(fileNamed: "MyParticle")!
             
-            newNode.fillColor = colors.randomElement()!
-            newNode.strokeColor = .clear
-            
+//            newNode.fillColor = color
+//            newNode.strokeColor = .clear
             newNode.name = NodeNames.star.rawValue
+            
+//            newNode.position = .init(x: 40, y: 40)
             newNode.position = .random(
                 xRange: (-self.size.width)...self.size.width,
                 yRange: (-self.size.height)...self.size.height
             )
             
+            particle.targetNode = self
+            particle.particleColor = color
+            particle.particleSize = CGSize(width: radius * 2, height: radius * 2)
+            particle.particleTexture = SKTexture(image: UIImage.init(diameter: radius * 2, color: color)!)
+            
+            newNode.addChild(particle)
+            
             self.getRotator()?.addChild(newNode)
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches {
+            let location = t.location(in: self)
+            self.getRotator()?.position = location
         }
     }
     
     func getRotator() -> SKNode? { self.childNode(withName: NodeNames.rotator.rawValue) }
     
+}
+
+extension UIImage {
+    convenience init?(diameter: CGFloat, color: UIColor) {
+        let size = CGSize(width: diameter, height: diameter)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        guard let contex = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+
+        contex.saveGState()
+        let rect = CGRect(origin: .zero, size: size)
+        contex.setFillColor(color.cgColor)
+        contex.fillEllipse(in: rect)
+        contex.restoreGState()
+
+        guard let image = UIGraphicsGetImageFromCurrentImageContext(),
+        let cgImage = image.cgImage else {
+            return nil
+        }
+        UIGraphicsEndImageContext()
+
+        self.init(cgImage: cgImage)
+    }
 }

@@ -15,6 +15,7 @@
 		D7DE7F812512466C00EC8C8B /* VSScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE7F802512466C00EC8C8B /* VSScene.swift */; };
 		D7DE7F832512468C00EC8C8B /* VSSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE7F822512468C00EC8C8B /* VSSceneManager.swift */; };
 		D7DE7F85251246B500EC8C8B /* NodeNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE7F84251246B500EC8C8B /* NodeNames.swift */; };
+		D7DE7F872512545600EC8C8B /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = D7DE7F862512545600EC8C8B /* MyParticle.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D7DE7F802512466C00EC8C8B /* VSScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSScene.swift; sourceTree = "<group>"; };
 		D7DE7F822512468C00EC8C8B /* VSSceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSSceneManager.swift; sourceTree = "<group>"; };
 		D7DE7F84251246B500EC8C8B /* NodeNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeNames.swift; sourceTree = "<group>"; };
+		D7DE7F862512545600EC8C8B /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				D78060AB2511A897003575DF /* ViewController.swift */,
 				D7DE7F802512466C00EC8C8B /* VSScene.swift */,
 				D7DE7F822512468C00EC8C8B /* VSSceneManager.swift */,
+				D7DE7F862512545600EC8C8B /* MyParticle.sks */,
 				D7DE7F84251246B500EC8C8B /* NodeNames.swift */,
 				D78060B02511A898003575DF /* Assets.xcassets */,
 				D78060B22511A898003575DF /* LaunchScreen.storyboard */,
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D78060B42511A898003575DF /* LaunchScreen.storyboard in Resources */,
+				D7DE7F872512545600EC8C8B /* MyParticle.sks in Resources */,
 				D78060B12511A898003575DF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
