@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     
     func setupVSScene() {
         self.scene = VSScene(size: self.view.frame.size)
-        scene.backgroundColor = .systemPink
+        scene.backgroundColor = .black
         self.scene.scaleMode = .aspectFill
         scene.size = self.skView.frame.size
         self.skView.presentScene(self.scene)
@@ -57,3 +57,8 @@ class ViewController: UIViewController {
 
 }
 
+extension CGPoint {
+    static func random(xRange: ClosedRange<CGFloat>, yRange: ClosedRange<CGFloat>) -> CGPoint {
+        return CGPoint(x: .random(in: xRange), y: .random(in: yRange))
+    }
+}

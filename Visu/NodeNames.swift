@@ -11,4 +11,5 @@ import Foundation
 enum NodeNames: String {
     case rotator
     case debug
+    case star
 }
